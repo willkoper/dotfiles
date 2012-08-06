@@ -5,16 +5,42 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
+alias cd..='cd ..' # I always fuck this one up
+
+#todo: figure out what this does :)
+alias less='less -r'
+
+#git shortcuts
+alias gs='git status '
+
+alias ga='git add '
+
+alias gb='git checkout -b '
+
+alias gc='git commit -m'
+
+alias gd='git diff'
+
+alias go='git checkout '
+
+alias gk='gitk --all&'
+
+alias gx='gitx --all'
+
+alias got='git '
+
+alias gut='git '
+
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias p="cd ~/Projects"
+alias drop="cd ~/Documents/Dropbox"
+alias devweb="cd ~/Sites"
+alias devmob="cd ~/Mobile/Projects" | node /usr/local/bin/weinre -boundHost koperw-4a4e103.local"
 alias g="git"
 alias h="history"
 alias j="jobs"
-alias v="vim"
-alias m="mate ."
-alias s="subl ."
+	#open file with text wrangler
+alias e="edit"
 alias o="open"
 alias oo="open ."
 
