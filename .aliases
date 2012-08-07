@@ -35,7 +35,7 @@ alias gut='git '
 # Shortcuts
 alias drop="cd ~/Documents/Dropbox"
 alias devweb="cd ~/Sites"
-alias devmob="cd ~/Mobile/Projects" | node /usr/local/bin/weinre -boundHost koperw-4a4e103.local"
+alias devmob="cd ~/Mobile/Projects | weinre"
 alias g="git"
 alias h="history"
 alias j="jobs"
@@ -85,6 +85,8 @@ alias flush="dscacheutil -flushcache"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
+# Web Services
+alias wienre="btab /usr/local/bin/weinre -boundHost koperw-4a4e103.local"
 # Canonical hex dump; some systems have this symlinked
 type -t hd > /dev/null || alias hd="hexdump -C"
 
@@ -116,7 +118,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+# alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
@@ -134,4 +136,5 @@ done
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
+alias yell="pumpitup | say $1"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"

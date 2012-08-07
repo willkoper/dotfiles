@@ -21,7 +21,24 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
-
+	#checkout
+	co = checkout
+ 	#create branch if not already exist
+ 	cb = checkout -b
+ 	#commit
+  	cm = commit -m
+  	#status
+  	st = status
+  	#branch
+  	br = branch
+  	#show formatted history
+  	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  	#show file type
+  	type = cat-file -t
+  	#
+  	dump = cat-file -p
+  	new = add .
+  update = pull origin master
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
