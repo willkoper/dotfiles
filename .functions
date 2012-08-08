@@ -145,9 +145,14 @@ EOF
 }
 
 function weinre(){
-	btab /usr/local/bin/weinre -boundHost koperw-4a4e103.local
-	networksetup -setairportpower en1 on
-	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.InternetSharing.plist
+	if test -n "$1" && test "$1" = "stop"; then
+		networksetup -setairportpower en1 off
+		sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.InternetSharing.plist
+	else
+		btab node /usr/local/bin/weinre -boundHost koperw-4a4e103.local
+		networksetup -setairportpower en1 on
+		sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.InternetSharing.plist
+	fi
 }
 
 #run command in new tab and switch back to active tab
