@@ -130,14 +130,8 @@ giterdone(){
     git commit -m "initial commit"
     }
 
-weinre () {
-	tab node /usr/local/bin/weinre -boundHost koperw-4a4e103.local
-    tell application "System Events"
-      tell process "Terminal" to keystroke "{" using command down
-    end
-EOF
-	
-}
+
+#run command in a new tab
 tab () {
 	osascript 2>/dev/null <<EOF
     tell application "System Events"
@@ -148,4 +142,27 @@ tab () {
       do script with command "$*" in window 1
     end tell
 EOF
+}
+
+function weinre(){
+	btab /usr/local/bin/weinre -boundHost koperw-4a4e103.local
+	networksetup -setairportpower en1 on
+	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.InternetSharing.plist
+}
+
+#run command in new tab and switch back to active tab
+btab () {
+	osascript 2>/dev/null <<EOF
+    tell application "System Events"
+      tell process "Terminal" to keystroke "t" using command down
+    end
+    tell application "Terminal"
+      activate
+      do script with command "$*" in window 1
+    end tell
+    tell application "System Events"
+      tell process "Terminal" to keystroke "{" using command down
+    end
+EOF
+
 }
